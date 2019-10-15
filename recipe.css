@@ -32,3 +32,10 @@
 #monday,#tuesday, #wednesday, #thursday, #friday, #saturday, #sunday{
     padding:30px;
 }
+
+#ulDays {
+    text-decoration:none;
+    list-style:none;
+    font-size:150%;
+}
+

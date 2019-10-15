@@ -3,84 +3,139 @@ const key ='c25022c64672675340993df4bc3df288';
 const appId='3ada96a9';
 let url="";
 
+daysOfWeek=document.querySelector('li');
+
 document.querySelector("#myButton").addEventListener("click", fetchFood);
 // MAKE SURE YOU HAVE A HASHTAG 
 
+let foodSearch = [
+    'chicken',
+    'beef',
+    'vegan',
+    'pork',
+    'dairy',
+    'vegetarian',
+    'mediterranean'
+];
+
+    let random = Math.floor(Math.random() * foodSearch.length)
+    let randFood= foodSearch[random];
+//Math.floor(x)
+//Returns the largest integer less than or equal to a number.
+//Math.random()
+//Returns a pseudo-random number between 0 and 1.
+
 function fetchFood(){            
     // e.preventDefault();            
-    url= `${baseURL}?q=chicken&app_id=${appId}&app_key=${key}&from=0&to=3&calories=591-722&health=alcohol-free`;          
+    url= `${baseURL}?q=${randFood}&app_id=${appId}&app_key=${key}&from=0&to=7&calories=591-900&health=alcohol-free`;          
     console.log("URL:",url);         
 
     fetch(url)                         
     .then(function(result) {           
         console.log(result)
-        return result.json();          
+        return result.json()       
     })
     .then(function(json){             
-        console.log(json)
-        console.log(json.q)            
-        displayResults(json);         
+        console.log(json)          
+        displayResults(json)         
     })
 };  
 
 
+
+
+
 function displayResults(json){  
+    console.log(json)
+    let days = ["MONDAY","TUESDAY",'WEDNESDAY','THURSDAY','FRIDAY','SATURDAY','SUNDAY']
+    let foodPicture = json.hits[Math.floor(Math.random())].recipe.image  
+    let served = document.getElementById('ulDays'); 
+    // let days = served.getElementById("da");
+    //Math.floor(x)
+    //Returns the largest integer less than or equal to a number.
+    //Math.random()
+    //Returns a pseudo-random number between 0 and 1.
+    for (let i=0; i<days.length; i++) {
+        let picture = document.getElementById('ulDays');
+        let list = document.createElement('li')
+        let foto=document.createElement('img')
+        picture.appendChild(list)        
+        picture.appendChild(foto)
+        list.innerHTML= days[i]
+        foto.setAttribute('src',foodPicture)
+    }
+}
 
-    let foodPicture = json.hits[0].recipe.image;     //defines a new variable. .response.docs is dot notation to walk through the api data (NYT data?). They refer to the jsonified data.
-  
-    let picture = document.createElement('h3');  
 
-    days.appendChild(picture);  //Trying to put the picture in each h3 element
+// *MULITPY BY A RANDOM NUMBER TO GET RANDOM IMAGE but how??
 
 
 
+// let served = document.getElementById('ulDays'); //in star wars, this was from the api data, not my html page
+// let days = served.getElementById("days[i]")
+// daysOfWeek=document.querySelector('li');
 
-//             let current= articles[i];       //name a variable, looping the articles. starting with 1 
-//             console.log("Current:",current);
 
-//             link.href= current.web_url;                             //sets the value of the current page each time we loop through. "web_url" refers to a key value pair in the  jsonified data
-//                 console.log(link);   //log the url
-//             link.textContent = current.headline.main;               //text is the headline from the json data from the current result
+// function displayResults(json){
+//     console.log(json)
+// let foodPicture = json.hits[Math.floor(Math.random())].recipe.image 
+// for (f of served){
+//     let dayOfWeek= document.createElement('li')
+//     let mealFoto=document.createElement('img')
+//     mealFoto.setAttribute('src',foodPicture)
+//     dayOfWeek.innerHTML= "<h1>" + h1.image + '</h1>'
+//     served.appendChild(dayOfWeek)
+//     daysOfWeek.appendChild(mealFoto)
+// }
+// }
 
-//             para.textContent = 'Keywords: ';                       //add keyword text content to the paragraph
-//             for(let j = 0; j < current.keywords.length; j++) {
-//                 //looping through keywords
-//             let span = document.createElement('span'); //creating a span tag in html
-//             span.textContent += current.keywords[j].value + ' ';//"keywords: " follwed by the current keywords from search results as we loop
-//             para.appendChild(span); //display that result in the html page
-//             }
 
-//             if(current.multimedia.length > 0) {  //if there is an image
-               
-//                 img.src = 'http://www.nytimes.com/' + current.multimedia[0].url;       //creating the img source
-//                  img.alt = current.headline.main;  //if image fails, display the headline
-//               }
-               
-//             clearfix.setAttribute('class','clearfix'); //using setAttribute method to target clearfix class, sets the div to a class, naming the div class clearfix
-            
-//             article.appendChild(heading);    //inserts data into the html to view on page
-//             heading.appendChild(link);      //inserts a link into the heading part of the html page
-//             section.appendChild(article);   //inserts an article into the section part of htmp page 
-//             article.appendChild(img);
-//             article.appendChild(clearfix);
-//             section.appendChild(article);
-//             article.appendChild(para);    //adding to an existing parent
-        
-//         }
+    // para.textContent = 'Served: ';                       //add title
+    // for(let j = 0; j < current.keywords.length; j++) {
+    //     //looping through keywords
+    // let span = document.createElement('span'); //creating a span tag in html
+    // span.textContent += current.keywords[j].value + ' ';//"keywords: " followed by the current keywords from search results as we loop
+    // para.appendChild(span); //display that result in the html page
+    // }
+
+//     if(foodPicture.length === 0){      //defines if statement. if there is no data,
+//         console.log("No meal today");  //log no results.
+//     } else {                           //otherwise
+//         for(let i=0; i< foodPicture.length; i++){   //loop through results
+//             let picture = document.createElement('img');  //looping through to show the picture
+//             // let title = document.createElement('h2'); //going to create a title for the recipe
+//             picture.setAttribute('src',foodPicture)
+//             daysOfWeek.appendChild(picture)
+// }}}
+//     // console.log(foodPicture);
+
+   
+
+
+
+
+    // let liTag= document.getElementsByTagName('li');      //gives me HTML collection
+    // console.log(liTag)
+
+    // let currentMeal= foodPicture[i]; 
+
+    // picture.textContent = foodPicture
+
+    // picture.setAttribute('src',foodPicture);
+    
+    // ulDays.appendChild(picture);  //Trying to put the picture in each li element
+// let starWarsPeopleList = document.querySelector('ul');
+
+// fetch('https://swapi.co/api/people')
+// .then(function(response) {
+//  return response.json();
+// })
+// .then(function(json) {
+//     let people = json.results;
+
+//     for(p of people){
+//         let listItem = document.createElement('li');
+//         listItem.innerHTML = '<p>' + p.name + '</p>';
+//         starWarsPeopleList.appendChild(listItem);
 //     }
-
-
-// if (articles.length===10) {          //if we have exactly 10 results
-//     nav.style.display='block';       //shows the nav display if 10 items are in the array
-// } else {                             //otherwise
-//     nav.style.display ='none';       //hides the nav display if less than 10 items are in the array
-// }
-// }
-
-// function nextPage(e) {             //declares a function called nextPage with parameter e
-//     pageNumber++;                 //cycle through pages
-//     fetchResults(e);              //cycling results along the way 
-//     console.log("Page number:", pageNumber); //displaying the page number they're on
-//  };
-
-
+// });

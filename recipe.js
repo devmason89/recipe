@@ -42,7 +42,7 @@ function fetchFood(){
 };  
 
 
-
+// let planner = json.hits[random].recipe.label
 
 
 function displayResults(json){  
@@ -66,8 +66,9 @@ function displayResults(json){
         foto.setAttribute('src',foodPicture)
     }
 
-    // if(foodPicture.length === 0){  
-    //     console.log("Fast today")           
+    if(foodPicture.length = 0) {  
+         img.alt = planner;  //if image fails, display the headline
+      }          
 }
 
 

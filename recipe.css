@@ -1,4 +1,63 @@
-.body {
+/* body {
+    background-image:url("./assets/brooke-lark-08bOYnH_r_E-unsplash.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+    width:100%;
+    height:100vh;
+    
+}
+
+.heading {
+    color:black;
+    font-family: 'The Girl Next Door', cursive;
+    display:inline-block;
+}
+
+.days {
+    font-family: 'The Girl Next Door', cursive;
+    margin-left:20px;
+    
+}
+
+
+#ulDays {
+    text-decoration:none;
+    list-style:none;
+    font-size:150%;
+
+}
+
+#myButton {
+    background-color: #CA275E;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+img {
+    height:50%;
+    width:50%;
+    display:inline-block;
+
+}
+
+ul {
+    display:block;
+    columns: 4;
+    -webkit-columns: 4;
+    -moz-columns: 4;
+  }
+
+
+
+
+    
+ */
+ .body {
     background-image:url("./assets/brooke-lark-08bOYnH_r_E-unsplash.jpg");
     background-repeat: no-repeat;
     background-size:cover;
@@ -50,9 +109,3 @@ ul {
     -webkit-columns: 4;
     -moz-columns: 4;
   }
-
-
-
-
-    
-

@@ -43,10 +43,18 @@ function fetchFood(){
 
 
 // let planner = json.hits[random].recipe.label
-
+const newWeek = document.getElementById('ulDays');
 
 function displayResults(json){  
-    // console.log(json)
+
+    while(newWeek.firstChild){
+        newWeek.removeChild(newWeek.firstChild);
+    }
+
+    // while(section.firstChild){      //looking at 1st search request
+    //     section.removeChild(section.firstChild);     //removing first fetch results with replacement search
+    // }
+
     let days = ["MONDAY","TUESDAY",'WEDNESDAY','THURSDAY','FRIDAY','SATURDAY','SUNDAY'];
     // let served = document.getElementById('ulDays'); 
     // let days = served.getElementById("da");
